@@ -1,9 +1,15 @@
 # rgb2colorname
-Provide the name of a color closest to an RGB value provided.
-Input: ["RGB","221","185","135"]
-Output: ["burlywood","222","184","135","gray"]
+
+This algorithm identifies the name of a color closest to an RGB value provided.
+
+* Input: ["RGB","221","185","135"]
+* Output: ["burlywood","222","184","135","gray"]
 
 We recognize that certain names have different associations in different parts of the world.
+
+So this may not see much use.
+
+But this is a fun exercise to make use of the Python numpy library's closest-neighbor functions.
 
 Alternative RGB hex and HCL representations are processed by another API.
 
