@@ -1,4 +1,4 @@
-The program <strong>rb2colorname.py</strong>
+The program <strong>rgb2colorname.py</strong>
 invokes and algorithm that identifies the name of a color closest to an RGB value provided.
 
 * Input: ["221","185","135"] are RGB (Red Green Blue) values between 0 - 256.
@@ -35,27 +35,38 @@ https://algorithmia.com/algorithms/wilsonmar/RGB2ColorName</a>
 
 ## Processing #
 
-0. The 3-dimensional array in the program <strong>rb2colorname.py</strong>
+0. The 3-dimensional array in the program <strong>rgb2colorname.py</strong>
    (as stored in GitHub)
-   is constructed partly by running the <strong>rbgcsv2array.py</strong>
-   program which reads
-   the <a href="#rgb_combined.csv">rbg_combined.csv</a> file.
+   is constructed by running the <strong>rbgcsv2array.py</strong>
+   program (also in this GitHub), which reads
+   the <a href="#rgb_combined.csv">rbg_combined_v01.csv</a> file.
 
    This is necessary because changes can occur in
    the list of color names and associated points in 3D color space.
 
-   http://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html
+   * http://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html
+   * http://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html
 
-0. Program <strong>rb2colorname.py</strong> in invoked with an array.
-   a set of 3 numbers.
+0. The array generated is pasted into program <strong>rgb2colorname.py</strong>.
+
+   The initial comma is removed.
+
+0. Program <strong>rgb2colorname.py</strong> in invoked with an array.
+   a set of 3 RGB numbers plus the hex equivalent and the color name title.
+
+   TODO: Slice the array so matching is done with only the first 3 dimensions?
 
 0. The numpy functions identify the nearest neighbor to the array input,
    and return 3 numbers.
 
-0. The 3 numbers returned is used to lookup the
-   name of the color and its Hex code (and later, its HCL code).
+0. The 3 numbers returned is used to calculated the hex code.
+   
+0. The hash code is used to lookup the
+   name of the color (and later, its HCL code).
 
-0. That information is returned to the caller.
+0. Information associated with the color found
+   (RGB numbers, hex code, color name)
+   is returned to the caller.
 
 
 ## Design alternatives #

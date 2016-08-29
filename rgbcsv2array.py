@@ -60,19 +60,20 @@ with open(file_in, 'rU') as f:
     reader = csv.reader(f, delimiter=',')
     first_line = f.readline() # pull out first line - do not print 
     # Print header:
-    print "A = array(["
+    print "A = np.array([ \\" 
     # Loop through lines in input to generate: "[222,43,221],[2,11,222]", one for each color:
     for i in reader:
     	# TODO: Output the first one without a leading comma.
-        # print row
+        # print row:
          print \
-         ',['+i[1]+','+i[2]+','+i[3]+',"'+i[4]+'","'+i[0]+'"]'
+         ',['+i[1]+','+i[2]+','+i[3]+',"'+i[4]+'","'+i[0]+'"] \\'
+         #',['+i[1]+','+i[2]+','+i[3]+'] \\'
     # Lastly:
     print "])"
+  # print "], np.int32)"
 
 # Close the file every time:
 sys.stdout.close()
-
 
 sys.stdout = stdout # Restore regular stdout.
 # End timer:
