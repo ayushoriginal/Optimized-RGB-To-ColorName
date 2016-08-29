@@ -25,12 +25,14 @@ And some colors may not be reproducible on printers and in pigments available.
 
 Nevertheless, this is a fun exercise for us to demonstrate our ability to make use of 
 Python and the numpy library's closest-neighbor functions.
-
 We are also using this program to demonstrate 
 our ability to incorporate algorithms into Algorthmia. Specifically at
 <a target="_blank" href="https://algorithmia.com/algorithms/wilsonmar/RGB2ColorName">
 https://algorithmia.com/algorithms/wilsonmar/RGB2ColorName</a>
 (a private service during development).
+
+Building on this achievement will be more distruptive tools such as
+VR into color spaces and ML outputs that recognize colors with more accuracy.
 
 
 ## Processing #
