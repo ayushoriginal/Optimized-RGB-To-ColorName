@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-# rb2colorname.py
-# by wilsonmar@gmail.com, ayush.original@gmail.com, 
-# https://github.com/paarthneekhara
+# rgb2colorname.py
+# by wilsonmar@gmail.com, ayush.original@gmail.com, https://github.com/paarthneekhara
 # Usage: 
+# Explained in https://github.com/jetbloom/rgb2colorname/blob/master/README.md
 # Based on http://stackoverflow.com/questions/2566412/find-nearest-value-in-numpy-array
 # This will be upgraded to 3 dimensional arrays
 
@@ -11,6 +11,8 @@ import numpy as np
 def find_nearest_vector(array, value):
   idx = np.array([np.linalg.norm(x+y) for (x,y) in array-value]).argmin()
   return array[idx]
+
+# TODO: Paste in: A = array([[222,43,221],[2,11,222], ... ])
 
 A = np.random.random((10,2))*100
 """ A = array([[ 34.19762933,  43.14534123],

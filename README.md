@@ -9,11 +9,28 @@ invokes and algorithm that identifies the name of a color closest to an RGB valu
 
 
 
-## Usage #
+## Usage Expected #
 
-Certain names have different associations in different parts of the world.
-So this may not see much use.
-But this is a fun exercise to make use of the Python numpy library's closest-neighbor functions.
+The utility is expected to enable artists to 
+more accurately specify the color of their works in
+text search engines within Google, Instagram, Etsy, Amazon, Walmart, Jet, and other 
+ecommerce site so that others can better match artwork to their design intentions.
+
+However, this may not see much use as many words in the color names 
+have different associations in different parts of the world.
+And artists probably desire more precision in color names than the 571 colors
+in the gamut.
+
+And some colors may not be reproducible on printers and in pigments available.
+
+Nevertheless, this is a fun exercise for us to demonstrate our ability to make use of 
+Python and the numpy library's closest-neighbor functions.
+
+We are also using this program to demonstrate 
+our ability to incorporate algorithms into Algorthmia. Specifically at
+<a target="_blank" href="https://algorithmia.com/algorithms/wilsonmar/RGB2ColorName">
+https://algorithmia.com/algorithms/wilsonmar/RGB2ColorName</a>
+(a private service during development).
 
 
 ## Processing #
@@ -27,7 +44,9 @@ But this is a fun exercise to make use of the Python numpy library's closest-nei
    This is necessary because changes can occur in
    the list of color names and associated points in 3D color space.
 
-0. Program <strong>rb2colorname.py</strong> in invoked with
+   http://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html
+
+0. Program <strong>rb2colorname.py</strong> in invoked with an array.
    a set of 3 numbers.
 
 0. The numpy functions identify the nearest neighbor to the array input,
@@ -83,10 +102,14 @@ which compete for the same color name and number.
    * https://cgit.freedesktop.org/xorg/app/rgb/tree/rgb.txt
 
 Column "_Gray" contains either "gray" or "grey" to differentiate then alternate spellings.
-This doubles the number of colors defined as gray/grey.
+X11 is defined with both, so it doubles the number of colors defined as gray/grey.
 
-   There is a doubling of gray/grey color name lines due to this
-   differentiation.
+   Since we are using the colors as a look-up, we should only have one.
+
+   "Grey" is used in Great Britain and areas that use UK English.
+   "Gray" is used primarily in the United States and other areas that use US English. 
+   So we only have "Gray" in this program to avoid
+   doubling of gray/grey color name definitions.
 
 Column "_SVG" is used to designate names in SVG. Color numbers differs between SVG and X11 for
 "gray", "gray", "green", "maroon" and "purple".
