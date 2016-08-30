@@ -56,8 +56,6 @@ VR into color spaces and ML outputs that recognize colors with more accuracy.
 0. Program <strong>rgb2colorname.py</strong> in invoked with an array.
    a set of 3 RGB numbers plus the hex equivalent and the color name title.
 
-   TODO: Slice the array so matching is done with only the first 3 dimensions?
-
 0. The numpy functions identify the nearest neighbor to the array input,
    and return 3 numbers.
 
