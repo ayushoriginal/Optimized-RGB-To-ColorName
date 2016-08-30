@@ -594,8 +594,11 @@ A = np.array([ \
 ### End of paste ###
 
 # QUESTION: Does it matter if the array is sorted by values?
+RGB= np.delete(A, np.s_[3:5], axis=1)
+#np.delete(A, np.s_[3::1], 1)
+print(RGB)
 
-print "A.shape(rows,dimensions)="+ str(A.shape)
+#print "A.shape(rows,dimensions)="+ str(A.shape)
 
 # pt = [152,204,51]
 # print "Nearest vector='+ find_nearest_vector(A,pt)
