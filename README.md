@@ -7,7 +7,9 @@ invokes and algorithm that identifies the name of a color closest to an RGB valu
 
 * Output: ["burlywood","222","184","135","gray"]
 
-
+   Perhaps also return the 3 distances to the input.
+   
+   And an accuracy score, which is always 100% since the calculation is done mathematically.
 
 ## Usage Expected #
 
