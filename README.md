@@ -7,7 +7,9 @@ invokes and algorithm that identifies the name of a color closest to an RGB valu
 
 * Output: ["burlywood","222","184","135","gray"]
 
-
+   Perhaps also return the 3 distances to the input.
+   
+   And an accuracy score, which is always 100% since the calculation is done mathematically.
 
 ## Usage Expected #
 
@@ -51,7 +53,7 @@ VR into color spaces and ML outputs that recognize colors with more accuracy.
 
 0. The array generated is pasted into program <strong>rgb2colorname.py</strong>.
 
-   The initial comma is removed.
+   NOTE: The initial comma of the first array needs to be removed manually after gen until I fix the code.
 
 0. Program <strong>rgb2colorname.py</strong> in invoked with an array.
    a set of 3 RGB numbers plus the hex equivalent and the color name title.
