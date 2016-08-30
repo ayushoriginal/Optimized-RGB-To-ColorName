@@ -56,21 +56,27 @@ sys.stdout=open( file_out,"w")
 import csv
 # 'rU' means open in universal-newline mode needed on Macs:
 #with open('./Portfolio.csv', 'rU') as f:
+
 with open(file_in, 'rU') as f:
     reader = csv.reader(f, delimiter=',')
     first_line = f.readline() # pull out first line - do not print 
     # Print header:
     print "A = np.array([ \\" 
     # Loop through lines in input to generate: "[222,43,221],[2,11,222]", one for each color:
+    rownum=0
     for i in reader:
-    	# TODO: Output the first one without a leading comma.
-        # print row:
-         print \
-         ',['+i[1]+','+i[2]+','+i[3]+',"'+i[4]+'","'+i[0]+'"] \\'
-         #',['+i[1]+','+i[2]+','+i[3]+'] \\'
+      if rownum ==0:
+        # print first row without a comma:
+          print '['+i[1]+','+i[2]+','+i[3]+',"'+i[4]+'","'+i[0]+'"] \\'
+          rownum=rownum+1
+      else:
+         print ',['+i[1]+','+i[2]+','+i[3]+',"'+i[4]+'","'+i[0]+'"] \\'
+         
     # Lastly:
     print "])"
   # print "], np.int32)"
+
+
 
 # Close the file every time:
 sys.stdout.close()
