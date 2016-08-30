@@ -51,7 +51,7 @@ VR into color spaces and ML outputs that recognize colors with more accuracy.
 
 0. The array generated is pasted into program <strong>rgb2colorname.py</strong>.
 
-   The initial comma is removed.
+   NOTE: The initial comma of the first array needs to be removed manually after gen until I fix the code.
 
 0. Program <strong>rgb2colorname.py</strong> in invoked with an array.
    a set of 3 RGB numbers plus the hex equivalent and the color name title.
