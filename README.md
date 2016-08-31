@@ -41,7 +41,9 @@ https://algorithmia.com/algorithms/wilsonmar/RGB2ColorName</a>
 (a private service during development).
 
 Building on this achievement will be more distruptive tools such as
-VR into color spaces and ML outputs that recognize colors with more accuracy.
+identify colors that are printable by specific printers,
+VR to help visualize 3D color spaces, and 
+ML outputs that recognize colors with more accuracy.
 
 
 ## Processing #
@@ -87,7 +89,9 @@ Column "_Hex" is the Hexadecimal combination of 3 RGB() hex of 2 characters each
 The column contains a leading dash because of the bad way Microsoft Excel handles hex numbers.
 The conversion to hex was done using this Excel formula:
 
+   <pre>
    =concatenate("#",DEC2HEX(B678,2),DEC2HEX(C678,2),DEC2HEX(D678,2))
+   </pre>
 
    The single # (hash mark) makes Excel see the six-characters as text rather than numbers.
 
@@ -150,7 +154,7 @@ df = DataFrame.from_csv(rgb_combined.csv', sep='\t')
 array = df.values # the array you are interested in
 </pre>
 
-Columns can be removed within the program:
+Columns can be removed within the program using this call:
 
 <pre>
 # RGB= np.delete(A, np.s_[3:5], axis=1) # remove columns 3 to 5.
