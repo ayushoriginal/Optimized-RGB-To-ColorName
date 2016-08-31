@@ -3,7 +3,7 @@
 # by wilsonmar@gmail.com, ayush.original@gmail.com, https://github.com/paarthneekhara
 # Usage: 
 # Explained in https://github.com/jetbloom/rgb2colorname/blob/master/README.md
-# Based on http://stackoverflow.com/questions/2566412/find-nearest-value-in-numpy-array
+# KDTree Implementation details http://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.KDTree.html#scipy.spatial.KDTree
 # This will be upgraded to 3 dimensional arrays
 import numpy as np
 from scipy import spatial
