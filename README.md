@@ -1,13 +1,13 @@
 The program <strong>rgb2colorname.py</strong>
-invokes and algorithm that identifies the name of a color closest to an RGB value provided.
+invokes an algorithm that identifies the name of a color closest to an RGB value provided as input.
 
 * Input: ["221","185","135"] are RGB (Red Green Blue) values between 0 - 256.
 
-   Alternative RGB hex and HCL representations are processed by another API.
+   Alternative HCL representations are processed by another API.
 
-* Output: ["burlywood","222","184","135","gray"]
+* Output: Nearest color name to input RGB [221, 183, 134] is "burlywood" #DEB887 [222 184 135]
 
-   Perhaps also return the 3 distances to the input.
+   TODO: Perhaps also return the 3 distances to the input.
    
    And an accuracy score, which is always 100% since the calculation is done mathematically.
 
@@ -69,20 +69,6 @@ VR into color spaces and ML outputs that recognize colors with more accuracy.
    is returned to the caller.
 
 
-## Design alternatives #
-
-The pandas library for Python
-http://pandas.pydata.org/
-
-http://pandas.pydata.org/pandas-docs/dev/generated/pandas.DataFrame.from_csv.html
-
-can load a Dataframe from the csv file.
-
-<pre>
-df = DataFrame.from_csv(rgb_combined.csv', sep='\t')
-array = df.values # the array you are interested in
-</pre>
-
 <a name="rbg_combined.csv"></a>
 
 ## rbg_combined.csv
@@ -136,8 +122,31 @@ SVG has "darkgray" while X11 does not.
 
    * "SVG" is from https://www.w3.org/TR/SVG/types.html#ColorKeywords
 
+
+## Design alternatives #
+
 Additional columns may be added because there are other color names, such as:
 
    * Pantone (proprietary).
 
    * https://en.wikipedia.org/wiki/Crayola#Colors
+
+The pandas library for Python
+http://pandas.pydata.org/
+
+http://pandas.pydata.org/pandas-docs/dev/generated/pandas.DataFrame.from_csv.html
+
+can load a Dataframe from the csv file.
+
+<pre>
+df = DataFrame.from_csv(rgb_combined.csv', sep='\t')
+array = df.values # the array you are interested in
+</pre>
+
+Columns can be removed within the program:
+
+<pre>
+# RGB= np.delete(A, np.s_[3:5], axis=1) # remove columns 3 to 5.
+</pre>
+
+
