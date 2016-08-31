@@ -32,7 +32,9 @@ Nevertheless, this is a fun exercise for us to demonstrate use of Python feature
    * calculate hex from decimal
    * string lookup in dictionary
    * naming conventions and documentation for teamwork
-   <br /><br />
+
+All different techniques were used in
+https://algorithmia.com/algorithms/vagrant/snapToMaterial/edit
 
 We are also using this exercise to demostrate our ability to 
 incorporate algorithms into Algorthmia. Specifically at
@@ -81,6 +83,9 @@ ML outputs that recognize colors with more accuracy.
 <a name="rbg_combined.csv"></a>
 
 ## rbg_combined.csv
+
+This work draws on prior work by Wilson Mar on colors at
+http://wilsonmar.com/1colors.htm#ColorNamez
 
 Column name text in the heading line begin with an underline
 so each sorts to the top during sorts.
@@ -159,6 +164,9 @@ Columns can be removed within the program using this call:
 <pre>
 # RGB= np.delete(A, np.s_[3:5], axis=1) # remove columns 3 to 5.
 </pre>
+
+# Based on https://algorithmia.com/algorithms/deeplearning/CaffeNet/edit
+# Consider https://github.com/spotify/annoy/ for sharing memory.
 
 
 ## Clean-up #

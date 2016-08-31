@@ -6,6 +6,7 @@
 # an array and dictionary is used in place of I/O from input reference files.
 # Explained in https://github.com/jetbloom/rgb2colorname/blob/master/README.md
 
+# import Algorithmia
 import numpy as np
 from scipy import spatial
 

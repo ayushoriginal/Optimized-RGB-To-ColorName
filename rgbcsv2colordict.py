@@ -5,6 +5,7 @@
 # Oputput: A = array([[222,43,221],[2,11,222], ... ])
 # Open resulting file rgb_colorarray.py and paste into rgb2colorname.py
 
+from __future__ import print_function
 
 # Begin timer:
 import timeit
@@ -32,10 +33,10 @@ if os.path.exists(file_in) and os.access(file_in, os.R_OK):
     with open(file_in, 'rU') as f:
         reader = csv.reader(f, delimiter=',')
         for i in reader:
-            header_rows = '# '+time.strftime('%Y-%m-%d-%H:%M (local time)')+" "+sys.argv[0]+' START: outrowcount='+ str( sum(1 for _ in f) ) +'.'
-            print header_rows
+            header_rows = '# '+time.strftime('%Y-%m-%d-%H:%M (local time)')+" "+sys.argv[0]+' START: inrowcount='+ str( sum(1 for _ in f) ) +'.'
+            print(header_rows)
 else:
-    print '# '+time.strftime('%Y-%m-%d-%H:%M (local time)')+' '+sys.argv[0]+" ABORTED. Either file "+file_in+" is missing or is not readable."
+    print('# '+time.strftime('%Y-%m-%d-%H:%M (local time)')+' '+sys.argv[0]+" ABORTED. Either file "+file_in+" is missing or is not readable.")
     exit(2)
 
 # Provide default file_out name argument if not provided:
@@ -61,22 +62,24 @@ import csv
 with open(file_in, 'rU') as f:
     reader = csv.reader(f, delimiter=',')
     first_line = f.readline() # pull out first line - do not print 
-    print header_rows
-    print "HexNameDict = { \\" 
+    print(header_rows)
+    print("    HexNameDict = {",end="") # no NewLine
     # Loop through lines in input to generate: "[222,43,221],[2,11,222]", one for each color:
     rownum=0
     for i in reader:
+      strRGBHex=i[0]
       if rownum ==0:
-        # print first row without a comma:
-          print ' "'+i[0]+'":"'+i[4]+'" \\'
+          # print first row without a comma:
+          print(' "'+i[0]+'":"'+i[4]+'"',end="")
+          lastRGBHex=strRGBHex
           rownum=rownum+1
       else:
-          print ',"'+i[0]+'":"'+i[4]+'" \\'
-         
-    # Lastly:
-    print "}"
-  # print "], np.int32)"
-
+        if lastRGBHex == strRGBHex:
+           pass
+        else:
+          print(',"'+i[0]+'":"'+i[4]+'"',end="")
+          lastRGBHex=strRGBHex
+    print("}") # end with NewLine
 
 
 # Close the file every time:
@@ -85,4 +88,4 @@ sys.stdout.close()
 sys.stdout = stdout # Restore regular stdout.
 # End timer:
 elapsed = timeit.default_timer() - start_time
-print "# "+ time.strftime('%Y-%m-%d-%H:%M (local time)') +' '+ sys.argv[0] +" END: ran for "+ "{:.2f}".format(elapsed * 1000 )+ ' secs.'
+print("# "+ time.strftime('%Y-%m-%d-%H:%M (local time)') +' '+ sys.argv[0] +" END: ran for "+ "{:.2f}".format(elapsed * 1000 )+ ' secs.')
