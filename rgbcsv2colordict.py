@@ -62,20 +62,19 @@ with open(file_in, 'rU') as f:
     reader = csv.reader(f, delimiter=',')
     first_line = f.readline() # pull out first line - do not print 
     print header_rows
-    # TODO: Remove duplicates.
-    print "RGB = np.array([ \\" 
+    print "HexNameDict = { \\" 
     # Loop through lines in input to generate: "[222,43,221],[2,11,222]", one for each color:
     rownum=0
     for i in reader:
       if rownum ==0:
         # print first row without a comma:
-          print ' ['+i[1]+','+i[2]+','+i[3]+'] \\'
+          print ' "'+i[0]+'":"'+i[4]+'" \\'
           rownum=rownum+1
       else:
-          print ',['+i[1]+','+i[2]+','+i[3]+'] \\'
+          print ',"'+i[0]+'":"'+i[4]+'" \\'
          
     # Lastly:
-    print "])"
+    print "}"
   # print "], np.int32)"
 
 
