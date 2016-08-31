@@ -25,10 +25,17 @@ in the gamut.
 
 And some colors may not be reproducible on printers and in pigments available.
 
-Nevertheless, this is a fun exercise for us to demonstrate our ability to make use of 
-Python and the numpy library's closest-neighbor functions.
-We are also using this program to demonstrate 
-our ability to incorporate algorithms into Algorthmia. Specifically at
+Nevertheless, this is a fun exercise for us to demonstrate use of Python features:
+
+   * numpy library's closest-neighbor functions
+   * definition of arrays and dictionary for stand-alone data values (no external dependencies)
+   * calculate hex from decimal
+   * string lookup in dictionary
+   * naming conventions and documentation for teamwork
+   <br /><br />
+
+We are also using this exercise to demostrate our ability to 
+incorporate algorithms into Algorthmia. Specifically at
 <a target="_blank" href="https://algorithmia.com/algorithms/wilsonmar/RGB2ColorName">
 https://algorithmia.com/algorithms/wilsonmar/RGB2ColorName</a>
 (a private service during development).
@@ -150,3 +157,12 @@ Columns can be removed within the program:
 </pre>
 
 
+## Clean-up #
+
+Please remove these intermediate attempts:
+
+* rgb2nearestvalue.py
+* rgb_color_k_nearest.py
+* rgb2color_runtime_error.py
+* rgb2nearestcolor.py
+* rgbcsv2array.py
