@@ -112,6 +112,13 @@ which compete for the same color name and number.
 
    * https://cgit.freedesktop.org/xorg/app/rgb/tree/rgb.txt
 
+   * "duo" is noted for where there are two color names for the same color, 
+   such as "aqua" and "cyan"; "fuchia" and "magenta". 
+   The first of names alphabetically is returned.
+
+   * "dup" is noted for colors that X11 duplicates. Such rows should be filtered out.
+   Thus, the file is sorted by _Hex and _X11 (reverse Z-A).
+
 Column "_Gray" contains either "gray" or "grey" to differentiate then alternate spellings.
 X11 is defined with both, so it doubles the number of colors defined as gray/grey.
 
