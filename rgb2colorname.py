@@ -1185,11 +1185,14 @@ s = '#' \
     + format(NearestRGB[1],'x') \
     + format(NearestRGB[2],'x')
 ColorHex = s.upper() # "#8B7355"  # "#8B7355" 
+ColorDiff = '('+ str(pt[0]-NearestRGB[0])+','+str(pt[1]-NearestRGB[1])+','+str(pt[1]-NearestRGB[2])+')'
 print 'Nearest color name to input RGB ' \
     + str(pt) \
     + ' is "'+ HexNameDict[ColorHex] +'"' \
     +' '+ ColorHex  \
-    +' '+ str(NearestRGB) 
+    +' '+ str(NearestRGB) \
+    +', '+ ColorDiff \
+    +'.'
 # print 'Is the above correct?'
 
 # TODO: Return HexNameDict[ColorHex] to caller.

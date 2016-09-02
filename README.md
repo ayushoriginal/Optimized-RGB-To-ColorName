@@ -143,7 +143,7 @@ SVG has "darkgray" while X11 does not.
 
 Additional columns may be added because there are other color names, such as:
 
-   * Pantone (proprietary).
+   * <a target="_blank" href="http://us.labelpartners.com/pantone_coated_table.html">Pantone</a> (proprietary).
 
    * https://en.wikipedia.org/wiki/Crayola#Colors
 
