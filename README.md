@@ -92,13 +92,21 @@ so each sorts to the top during sorts.
 
 Column "_Hex" is the Hexadecimal combination of 3 RGB() hex of 2 characters each.
 The column contains a leading dash because of the bad way Microsoft Excel handles hex numbers.
-The conversion to hex was done using this Excel formula:
+
+The single # (hash mark) makes Excel see the six-characters as text rather than numbers.
+
+The conversion to hex #5A87C5 was done using this Excel formula:
 
    <pre>
    =concatenate("#",DEC2HEX(B678,2),DEC2HEX(C678,2),DEC2HEX(D678,2))
    </pre>
 
-   The single # (hash mark) makes Excel see the six-characters as text rather than numbers.
+To convert to hex can be done using this Excel formula:
+
+   <pre>
+   =concatenate(HEX2DEC(MID(A2,2,2))
+   </pre>
+
 
 Column "_Title" contains color names that in "Title" case,
 with a capitalize first letters of every word.
