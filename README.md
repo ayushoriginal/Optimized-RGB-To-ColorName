@@ -114,21 +114,6 @@ SVG has names in all lower case.
 
 Column "_Name" are dashes between compound words for X11.
 
-Column "_X11" is needed because color names are from a combination of sources,
-which compete for the same color name and number.
-
-   * "X11" is from https://en.wikipedia.org/wiki/X11_color_names
-   X11 color names first defined in 1985.
-
-   * https://cgit.freedesktop.org/xorg/app/rgb/tree/rgb.txt
-
-   * "duo" is noted for where there are two color names for the same color, 
-   such as "aqua" and "cyan"; "fuchia" and "magenta". 
-   The first of names alphabetically is returned.
-
-   * "dup" is noted for colors that X11 duplicates. Such rows should be filtered out.
-   Thus, the file is sorted by _Hex and _X11 (reverse Z-A).
-
 Column "_Gray" contains either "gray" or "grey" to differentiate then alternate spellings.
 X11 is defined with both, so it doubles the number of colors defined as gray/grey.
 
@@ -138,6 +123,24 @@ X11 is defined with both, so it doubles the number of colors defined as gray/gre
    "Gray" is used primarily in the United States and other areas that use US English. 
    So we only have "Gray" in this program to avoid
    doubling of gray/grey color name definitions.
+
+Column "_seq" sequences conflicting _Hex codes.
+A color has "1" in this field if it has no conflicts.
+This is the only color put in the array and dictionary.
+Conflicting colors are given "2", "3", etc. so they are not lost for future use.
+
+This field is used as the secondary soft after _Hex.
+
+Column "_Source"
+
+   * "X11" is from https://en.wikipedia.org/wiki/X11_color_names
+   X11 color names first defined in 1985.
+
+   * https://cgit.freedesktop.org/xorg/app/rgb/tree/rgb.txt
+
+   * "duo" is noted for where there are two color names for the same color, 
+   such as "aqua" and "cyan"; "fuchia" and "magenta". 
+   The first of names alphabetically is returned.
 
 Column "_SVG" is used to designate names in SVG. Color numbers differs between SVG and X11 for
 "gray", "gray", "green", "maroon" and "purple".
