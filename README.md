@@ -131,6 +131,9 @@ Conflicting colors are given "2", "3", etc. so they are not lost for future use.
 
 This field is used as the secondary soft after _Hex.
 
+   A number must be used because Excel sorts blanks under cells with values
+   (the opposite of how databases do sorting).
+
 Column "_Source"
 
    * "X11" is from https://en.wikipedia.org/wiki/X11_color_names
