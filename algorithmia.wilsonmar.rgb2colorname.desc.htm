@@ -1,0 +1,44 @@
+<p>This algorithm returns the name of the color that most closely matches the three numbers specifying a color (RGB).</p>
+<p>This API makes it easier for artists to identify color names so they have a way to use English words to describe colors.&nbsp;</p>
+<p style="color: rgb(85, 85, 85);background-color: rgb(255, 255, 255);"><span>This capability I also needed for a finger camera (IoT device) I'm working on which speaks the color name.</span><br></p>
+<h1><span style="color: inherit;"><b>Inputs and Outputs:</b></span><br></h1>
+<p>Colors are defined by 3 integers for RGB (Red Green Blue).&nbsp;<span>The program returns black if any number is larger than the 255 maximum value for each color.</span></p>
+<p>Additional information on colors is available on&nbsp;this author's decades of maniacal obsession with colors on computers at&nbsp;<a target="_blank" href="http://wilsonmar.com/1colors.htm" style="color: rgb(153, 99, 255);background-color: rgb(255, 255, 255);">http://wilsonmar.com/1colors.htm</a>.<br></p>
+<p><b>Example 1: SVG and X11</b><br></p>
+<h2><img src="https://cloud.githubusercontent.com/assets/300046/18149649/a88d4c6e-6f9e-11e6-9797-78618ae963f5.jpg"></h2>
+<pre><b>["221","184","137"]&nbsp;</b></pre>
+<p>is close to the color named "burlywood", a brownish color defined by the X11 standard.</p>
+<pre>{"burlywood",[222,184,135],"#DEB887","(+1,+0,-2)"}<br></pre>
+<p>"#DEB887" is the hex value used in CSS for display on <b>computer monitors</b>. Such colors may not be available in physical paint from a hardware store.</p>
+<p>"(+1,+0,+2)" is how far away the input color is from the named color returned.</p>
+<h3>Example 2: Pantone<br></h3>
+<pre><b>["123","163","217"]</b></pre>
+<p>is close to one of 1340 colors in the Pantone gamut output:</p>
+<pre><b>{"Pantone 659 C",[123,164,219],"#7BA4DB","(+0,+1,-2)"}</b></pre>
+<p>which is proprietary because of the work that went into figuring out what pigments paint stores need to mix to duplicate it accurately. For a fee, Pantone offers tools pros use to specify and measure a wide number of colors, such as <a target="_blank" href="https://www.visualnews.com/2016/06/15/worlds-ugliest-color)">"the world's ugliest color"</a> Pantone 448 C at ["74","65",42"]</p>
+<h3>Example 3: Company<br></h3>
+<pre><b>["0","119","181"]</b></pre>
+<p>is close to one of 29 corporate colors the algorithm can output:</p>
+<pre><b>{"Company LinkedIn blue",[0,119,181],"#0077B5","(+0,+0,+0)"}</b></pre>
+<p>The "(+0,+0,+0)" reflects a direct hit.<br></p>
+<h2>Credits:</h2>
+<p>The bulk of the work on this is to reconcile duplicate colors and color names from a variety of sources.&nbsp;</p>
+<ul>
+	<li>The X11 and SVG standards were created to name colors that can best be displayed by display monitor hardware with minimal processing (at a time when displays had a smaller gamut than today).&nbsp;</li>
+	<li>19 "Metro" colors are defined by Microsoft for Windows 8 from&nbsp;https://www.materialui.co/metrocolors</li>
+	<li>18 Material Flat colors from&nbsp;<a target="_blank" href="https://www.materialui.co/flatuicolors" style="color: rgb(153, 99, 255);text-align: left;background-color: rgb(255, 255, 255);">https://www.materialui.co/flatuicolors</a></li>
+	<li> 29 Company colors from&nbsp;https://www.materialui.co/socialcolors</li>
+	<li>Pantone colors from&nbsp;http://us.labelpartners.com/pantone_coated_table.html</li>
+	<li>US Federal Standard 595 from&nbsp;http://www.fed-std-595.com/FS-595-Paint-Spec.html</li>
+</ul>
+<p><span>Thanks to Ayush Pareek for his Python numpy genius.</span><br></p>
+<h2>Future enhancements:</h2>
+<ul>
+	<li><p style="color: rgb(85, 85, 85);background-color: rgb(255, 255, 255);">Future uses of this API can identify colors that are printable on specific printers. Inclusion of additional color names will make this more useful to specify colors more accurately throughout the design lifecycle.</p></li>
+	<li><span>Process JSON from another Algorithmia API as&nbsp;</span><span>part of a toolchain such as a follow-up to identification of predominant colors identified in a photograph by the&nbsp;<a href="https://github.com/fengsp/color-thief-py" style="color: rgb(153, 99, 255);background-color: rgb(255, 255, 255);">https://github.com/fengsp/color-thief-py</a>&nbsp;library</span></li>
+	<li style="color: rgb(85, 85, 85);background-color: rgb(255, 255, 255);"><span>filter to respond only from specific gamuts (X11, SVG, Pantone)</span></li>
+	<li><span>accept a wider range of input formats, such as "(0,175,219)"</span></li>
+	<li><span>return a number of colors in the database</span></li>
+	<li><span>input and return HCL color numbers (a different API)</span></li>
+	<li><span>An app that reports the name of the color at the location tapped on a photo</span></li>
+</ul>

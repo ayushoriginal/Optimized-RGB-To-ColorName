@@ -25,7 +25,7 @@ if __name__ == "__main__":
    except IndexError: # getopt.GetoptError:
       # print "Usage: " + sys.argv[0] + ' -i <inputfile> -o <outputfile>'
       # sys.exit(2)
-      file_in = 'rgb_combined_v02.csv'
+      file_in = 'rgb_combined_v03.csv'
 
 # Exit if file_in not found:
 if os.path.exists(file_in) and os.access(file_in, os.R_OK):
@@ -33,10 +33,10 @@ if os.path.exists(file_in) and os.access(file_in, os.R_OK):
     with open(file_in, 'rU') as f:
         reader = csv.reader(f, delimiter=',')
         for i in reader:
-            header_rows = '# '+time.strftime('%Y-%m-%d-%H:%M (local time)')+" "+sys.argv[0]+' START: inrowcount='+ str( sum(1 for _ in f) ) +'.'
+            header_rows = '# '+time.strftime('%Y-%m-%d %H:%M (local time)')+" "+sys.argv[0]+' START: inrowcount='+ str( sum(1 for _ in f) ) +'.'
             print(header_rows)
 else:
-    print('# '+time.strftime('%Y-%m-%d-%H:%M (local time)')+' '+sys.argv[0]+" ABORTED. Either file "+file_in+" is missing or is not readable.")
+    print('# '+time.strftime('%Y-%m-%d %H:%M (local time)')+' '+sys.argv[0]+" ABORTED. Either file "+file_in+" is missing or is not readable.")
     exit(2)
 
 # Provide default file_out name argument if not provided:
@@ -81,13 +81,12 @@ with open(file_in, 'rU') as f:
           rownum=rownum+1
     print("}") # end with NewLine
 
-footer_rows="# "+ time.strftime('%Y-%m-%d-%H:%M (local time)') +' '+ sys.argv[0] +" Output "+ str(rownum)+ ' rows.'
-print(footer_rows)
+footer_row1="# "+ time.strftime('%Y-%m-%d %H:%M (local time)') +' '+ sys.argv[0] +' '+ file_out +" output "+ str(rownum)+ ' rows.'
+print("    "+footer_row1)
 # Close the file every time:
 sys.stdout.close()
 
 sys.stdout = stdout # Restore regular stdout.
-# End timer:
-elapsed = timeit.default_timer() - start_time
-print("# "+ time.strftime('%Y-%m-%d-%H:%M (local time)') +' '+ sys.argv[0] +" END: ran for "+ "{:.2f}".format(elapsed * 1000 )+ ' secs.')
-print(footer_rows)
+print(footer_row1)
+elapsed = timeit.default_timer() - start_time # End timer:
+print("# "+ time.strftime('%Y-%m-%d %H:%M (local time)') +' '+ sys.argv[0] +" END: ran for "+ "{:.2f}".format(elapsed * 1000 )+ ' secs.')

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# rgbcvs2colorarray.py
+# rgbcvs2rgbarray.py
 # by wilsonmar@gmail.com
 # Usage: rgbcvs2colorarray.py  rgb_combined.csv
 # Oputput: A = array([[222,43,221],[2,11,222], ... ])
@@ -24,7 +24,7 @@ if __name__ == "__main__":
    except IndexError: # getopt.GetoptError:
       # print "Usage: " + sys.argv[0] + ' -i <inputfile> -o <outputfile>'
       # sys.exit(2)
-      file_in = 'rgb_combined_v02.csv'
+      file_in = 'rgb_combined_v05.csv'
 
 # Exit if file_in not found:
 if os.path.exists(file_in) and os.access(file_in, os.R_OK):
@@ -39,19 +39,17 @@ else:
     exit(2)
 
 # Provide default file_out name argument if not provided:
-if __name__ == "__main__":
-#def main(argv):
+if __name__ == "__main__": #def main(argv):
+   # Name output file by appending .txt to the name:
    try:
       arg1 = sys.argv[2]
-      file_out = sys.argv[2]
+      file_out = sys.argv[2] +'.'+ file_in + '.txt'
    except IndexError: # getopt.GetoptError:
-   	  # Name output file by appending .txt to the name:
       file_out = file_in + '.txt'
 
 # Send STDOUT to a file:
 stdout = sys.stdout  # remember the handle to the real standard output.
 sys.stdout=open( file_out,"w")
-
 
 # Print in yml format:
 import csv
@@ -82,7 +80,7 @@ with open(file_in, 'rU') as f:
           rownum=rownum+1
     print("])") # with NewLine
 
-footer_rows="# "+ time.strftime('%Y-%m-%d-%H:%M (local time)') +' '+ sys.argv[0] +" Output "+ str(rownum)+ ' rows.'
+footer_rows="    # "+ time.strftime('%Y-%m-%d-%H:%M (local time)') +' '+ sys.argv[0] +" Output "+ str(rownum)+ ' rows.'
 print(footer_rows)
 # Close the file every time:
 sys.stdout.close()
@@ -91,4 +89,4 @@ sys.stdout = stdout # Restore regular stdout.
 # End timer:
 elapsed = timeit.default_timer() - start_time
 print("# "+ time.strftime('%Y-%m-%d-%H:%M (local time)') +' '+ sys.argv[0] +" END: ran for "+ "{:.2f}".format(elapsed * 1000 )+ ' secs.')
-print(footer_rows)
+print('    '+footer_rows)

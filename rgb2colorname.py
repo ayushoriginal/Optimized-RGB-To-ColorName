@@ -1171,7 +1171,9 @@ HexNameDict = { \
 
 # TODO: Test calls using variety of RGB input values
 # TODO: Change to call argument with the point to find
-pt = [221,183,134] # approximate to
+# pt = [221,183,134] # approximate to
+#pt = [0,0,0] # example needing zerofill
+pt = [221,182,137] # = "burlywood","#DEB887"] 
 # pt = [222,184,135] # = "burlywood","#DEB887"] 
 # pt = [154,205,50] # = OliveDrab 
 
@@ -1181,14 +1183,22 @@ NearestRGB = (RGB[spatial.KDTree(RGB).query(pt)[1]])
 # TODO: Calculate Hex from pt. (upper case letters)
 # Instead of str(hex(pt[0])[2:]) in Python2, this is Python3 compatible:
 s = '#' \
-    + format(NearestRGB[0],'x') \
-    + format(NearestRGB[1],'x') \
-    + format(NearestRGB[2],'x')
+    + format(NearestRGB[0],'x').zfill(2) \
+    + format(NearestRGB[1],'x').zfill(2) \
+    + format(NearestRGB[2],'x').zfill(2)
 ColorHex = s.upper() # "#8B7355"  # "#8B7355" 
-ColorDiff = '('+ str(pt[0]-NearestRGB[0])+','+str(pt[1]-NearestRGB[1])+','+str(pt[1]-NearestRGB[2])+')'
+ColorDiff = \
+     '('+'{0:+d}'.format(NearestRGB[0]-pt[0]) \
+    +','+'{0:+d}'.format(NearestRGB[1]-pt[1]) \
+    +','+'{0:+d}'.format(NearestRGB[2]-pt[2]) \
+    +')'
+try: ## TODO: try catch block per https://wiki.python.org/moin/HandlingExceptions
+    ColorName=HexNameDict[ColorHex]
+except:
+	ColorName="not found"
 print 'Nearest color name to input RGB ' \
     + str(pt) \
-    + ' is "'+ HexNameDict[ColorHex] +'"' \
+    + ' is "'+ ColorName +'"' \
     +' '+ ColorHex  \
     +' '+ str(NearestRGB) \
     +', '+ ColorDiff \
