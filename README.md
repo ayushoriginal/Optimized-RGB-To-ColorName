@@ -141,9 +141,11 @@ Column "_Source"
 
    * https://cgit.freedesktop.org/xorg/app/rgb/tree/rgb.txt
 
-   * "duo" is noted for where there are two color names for the same color, 
-   such as "aqua" and "cyan"; "fuchia" and "magenta". 
-   The first of names alphabetically is returned.
+   * Pantone (proprietary).
+
+   * https://en.wikipedia.org/wiki/Crayola#Colors
+
+
 
 Column "_SVG" is used to designate names in SVG. Color numbers differs between SVG and X11 for
 "gray", "gray", "green", "maroon" and "purple".
@@ -152,21 +154,25 @@ SVG has "darkgray" while X11 does not.
 
    * "SVG" is from https://www.w3.org/TR/SVG/types.html#ColorKeywords
 
+   "diff" is in the column if it's different than X11.
+
+   * "duo" is noted for where there are two color names for the same color, 
+   such as "aqua" and "cyan"; "fuchia" and "magenta". 
+   The first of names alphabetically is returned.
+
+TOOL NOTE: To remove diacritical (Non-ASCII) characters from a file, consider:
+http://utils.paranoiaworks.org/diacriticsremover/
 
 ## Design alternatives #
 
 Additional columns may be added because there are other color names, such as:
-
-   * Pantone (proprietary).
-
-   * https://en.wikipedia.org/wiki/Crayola#Colors
 
 The pandas library for Python
 http://pandas.pydata.org/
 
 http://pandas.pydata.org/pandas-docs/dev/generated/pandas.DataFrame.from_csv.html
 
-can load a Dataframe from the csv file.
+Load a Dataframe from the csv file.
 
 <pre>
 df = DataFrame.from_csv(rgb_combined.csv', sep='\t')
@@ -176,11 +182,11 @@ array = df.values # the array you are interested in
 Columns can be removed within the program using this call:
 
 <pre>
-# RGB= np.delete(A, np.s_[3:5], axis=1) # remove columns 3 to 5.
+ RGB= np.delete(A, np.s_[3:5], axis=1) # remove columns 3 to 5.
 </pre>
 
-# Based on https://algorithmia.com/algorithms/deeplearning/CaffeNet/edit
-# Consider https://github.com/spotify/annoy/ for sharing memory.
+Based on https://algorithmia.com/algorithms/deeplearning/CaffeNet/edit
+Consider https://github.com/spotify/annoy/ for sharing memory.
 
 
 ## Clean-up #
