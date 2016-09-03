@@ -163,6 +163,10 @@ SVG has "darkgray" while X11 does not.
 TOOL NOTE: To remove diacritical (Non-ASCII) characters from a file, consider:
 http://utils.paranoiaworks.org/diacriticsremover/
 
+Other ideas for Alogrithmia:
+http://textmechanic.com/text-tools/numeration-tools/online-tally-counter/
+
+
 ## Design alternatives #
 
 Additional columns may be added because there are other color names, such as:
