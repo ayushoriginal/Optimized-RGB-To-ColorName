@@ -165,16 +165,17 @@ http://utils.paranoiaworks.org/diacriticsremover/
 
    * <a target="_blank" href="http://us.labelpartners.com/pantone_coated_table.html">Pantone</a> (proprietary).
 
+Other ideas for Alogrithmia:
+http://textmechanic.com/text-tools/numeration-tools/online-tally-counter/
+
+
 ## Design alternatives #
 
-Add more color name sources (Sherwine Williams, etc.) - visit Home Depot
+0. Add more color name sources (Sherwin Williams, etc.) - visit Home Depot
 
-The pandas library for Python
-http://pandas.pydata.org/
+0. Load csv file as Dataframe - the pandas library for Python
+   http://pandas.pydata.org/pandas-docs/dev/generated/pandas.DataFrame.from_csv.html
 
-http://pandas.pydata.org/pandas-docs/dev/generated/pandas.DataFrame.from_csv.html
-
-Load a Dataframe from the csv file.
 
 <pre>
 df = DataFrame.from_csv(rgb_combined.csv', sep='\t')
