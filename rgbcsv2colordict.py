@@ -25,7 +25,7 @@ if __name__ == "__main__":
    except IndexError: # getopt.GetoptError:
       # print "Usage: " + sys.argv[0] + ' -i <inputfile> -o <outputfile>'
       # sys.exit(2)
-      file_in = 'rgb_combined_v03.csv'
+      file_in = 'rgb_combined_v05.csv'
 
 # Exit if file_in not found:
 if os.path.exists(file_in) and os.access(file_in, os.R_OK):
@@ -62,14 +62,14 @@ import csv
 with open(file_in, 'rU') as f:
     reader = csv.reader(f, delimiter=',')
     first_line = f.readline() # pull out first line - do not print 
-    print("    HexNameDict = {",end="") # no NewLine
+    print("    HexNameDict={",end="") # no NewLine
     # Loop through lines in input to generate: "[222,43,221],[2,11,222]", one for each color:
     rownum=0
     for i in reader:
       strRGBHex=i[0]
       if rownum ==0:
           # print first row without a comma:
-          print(' "'+i[0]+'":"'+i[4]+'"',end="")
+          print( '"'+i[0]+'":"'+i[4]+'"',end="")
           lastRGBHex=strRGBHex
           rownum=rownum+1
       else:

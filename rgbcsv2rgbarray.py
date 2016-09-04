@@ -32,10 +32,10 @@ if os.path.exists(file_in) and os.access(file_in, os.R_OK):
     with open(file_in, 'rU') as f:
         reader = csv.reader(f, delimiter=',')
         for i in reader:
-            header_rows = '# '+time.strftime('%Y-%m-%d-%H:%M (local time)')+" "+sys.argv[0]+' START: outrowcount='+ str( sum(1 for _ in f) ) +'.'
+            header_rows = '# '+time.strftime('%Y-%m-%d %H:%M (local time)')+" "+sys.argv[0]+' START: outrowcount='+ str( sum(1 for _ in f) ) +'.'
             print(header_rows)
 else:
-    print('# '+time.strftime('%Y-%m-%d-%H:%M (local time)')+' '+sys.argv[0]+" ABORTED. Either file "+file_in+" is missing or is not readable.")
+    print('# '+time.strftime('%Y-%m-%d %H:%M (local time)')+' '+sys.argv[0]+" ABORTED. Either file "+file_in+" is missing or is not readable.")
     exit(2)
 
 # Provide default file_out name argument if not provided:
@@ -80,13 +80,13 @@ with open(file_in, 'rU') as f:
           rownum=rownum+1
     print("])") # with NewLine
 
-footer_rows="    # "+ time.strftime('%Y-%m-%d-%H:%M (local time)') +' '+ sys.argv[0] +" Output "+ str(rownum)+ ' rows.'
-print(footer_rows)
+footer_rows="# "+ time.strftime('%Y-%m-%d %H:%M (local time)') +' '+ sys.argv[0] +' '+ file_out+" output "+ str(rownum)+ ' rows.'
+print('    '+footer_rows)
 # Close the file every time:
 sys.stdout.close()
 
 sys.stdout = stdout # Restore regular stdout.
 # End timer:
 elapsed = timeit.default_timer() - start_time
-print("# "+ time.strftime('%Y-%m-%d-%H:%M (local time)') +' '+ sys.argv[0] +" END: ran for "+ "{:.2f}".format(elapsed * 1000 )+ ' secs.')
-print('    '+footer_rows)
+print("# "+ time.strftime('%Y-%m-%d %H:%M (local time)') +' '+ sys.argv[0] +" END: ran for "+ "{:.2f}".format(elapsed * 1000 )+ ' secs.')
+print(footer_rows)
