@@ -1,3 +1,84 @@
+# Optimized RGB-To-ColorName API
+## Authors- Wilson Mar, Ayush Pareek
+
+### TL;DR- Not all colours present in the physical world have an exact representation in different forms of digital spectrum and platforms. Artists, E-commerce websites, Companies etc. desire precision while publishing their work, products and logos. Some colors may not be reproducible on monitors and on printers in pigments available. This API gives closest approximation of an RGB value to a set of colour names. Its highly optimized for performance and scalibility.
+
+![0](http://i.imgur.com/iT79E5u.png)
+
+##Hosted at :- https://algorithmia.com/algorithms/wilsonmar/RGB2ColorName
+
+
+This API makes it easier for artists to identify color names to use English words to describe colors. 
+Colors are defined by 3 integers for RGB (Red Green Blue). The program returns black if any number is larger than the 255 maximum value for each color. The 255x255x255 = 16,581,375 possible individual color values.
+
+![yo](http://i.imgur.com/f0f3IUu.png)
+
+Currently, this API knows about 2,790 unique color names widely defined publicly. 
+
+The three dimensions involved in specifying a color makes it difficult to manually identify the closest point with a color name.
+
+The bulk of the work on this API was in compiling the color names and their RGB coordinates. There were many duplicates in both names and color coordinates.
+
+##Inputs and Outputs:
+The colors of a few famous social media and tech companies are known by this API, thanks to https://www.materialui.co/socialcolors. Additional companies have been added into this API, such as Google, Amazon, and IBM.
+
+
+###Example 1: IBM Blue and Hex equivalent
+Organizations need to precisely specify the colors in their logo so that vendors accurately render it online, in packaging, etc.. 
+
+In https://www-03.ibm.com/press/us/en/photo/20190.wss IBM defines the color of its trademark Blue color as "PMS 2718C; Process equivalent: Cyan 75%, Magenta 43%, Yellow 0%, Black 0%; RGB equivalent: Red 90, Green 135, Blue 197; Broadcast equivalent: Red 22%, Green 42%, Blue 70%.: Let's see if this API recognizes it:
+
+![1](http://i.imgur.com/2xMe1p1.png)
+
+
+"#5A87C5" is the hex equivalent of the RGB color found.
+
+"(+0,+0,+0)" means that the color found is a direct hit of the color input.
+
+
+###Example 2: Pantone
+
+So for many years, designers make use of the Pantone palette of 1,340 colors, which are proprietary because of the work that went into figuring out what mix of pigments of paints and dyes are needed to duplicate it accurately. 
+
+Pantone's "PMS" colors are from http://us.labelpartners.com/pantone_coated_table.html.
+
+For a fee, Pantone offers tools pros use to specify and measure a wide number of colors, such as "the world's ugliest color" Pantone 448 C at ["74","65",42"], which governments use to discourage smoking. 
+
+
+###Example 3: X11, SVG, CSS
+
+
+The X11 and SVG standards were created to name colors that can best be displayed by display monitor hardware with minimal processing (at a time when displays had a smaller gamut than today). 
+
+![2](http://i.imgur.com/W2qN6bN.png)
+![3](http://i.imgur.com/1lDCTvK.png)
+
+####Credits:
+The bulk of the work on this is to reconcile duplicate colors and color names from a variety of sources. 
+
+19 "Metro" colors are defined by Microsoft for Windows 8 from https://www.materialui.co/metrocolors
+18 Material Flat colors from https://www.materialui.co/flatuicolors
+29 Company colors from https://www.materialui.co/socialcolors
+Crayola colors
+US Federal Standard 595 from http://www.fed-std-595.com/FS-595-Paint-Spec.html
+Thanks to Ayush Pareek for his Python numpy genius.
+
+This capability is also needed for a finger camera (IoT device) which speaks the color name.
+
+####Tags-
+accessibility
+color
+color palette
+data transformation
+mapping
+python
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+## DESIGN AND WORKING STRUCTURE
+
+![4](http://i.imgur.com/BmUGWRn.png)
+
 The program <strong>rgb2colorname.py</strong>
 invokes an algorithm that identifies the name of a color closest to an RGB value provided as input.
 
