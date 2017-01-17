@@ -9,7 +9,7 @@
 
 
 This API makes it easier for artists to identify color names to use English words to describe colors. 
-Colors are defined by 3 integers for RGB (Red Green Blue). The program returns black if any number is larger than the 255 maximum value for each color. The 255x255x255 = 16,581,375 possible individual color values.
+Colors are defined by 3 integers for RGB (Red Green Blue). The program returns black if any number is larger than the 255 maximum value for each color. The 256x256x256 = 16,777,216 possible individual color values.
 
 ![yo](http://i.imgur.com/f0f3IUu.png)
 
